@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8dc27759-2d08-4871-83bc-d3f7bec0efcf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="D:\Go" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1hWuyBaq80jGbUxSYNHnvqv6Eur" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="typescript.add.unambiguous.imports.on.the.fly" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\go\src\awesomeProject\sql\domain" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\go\src\awesomeProject\aac" />
+      <recent name="C:\Users\Administrator\go\src\awesomeProject\oop" />
+      <recent name="C:\Users\Administrator\go\src\awesomeProject" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build awesomeProject/lj">
+    <configuration name="go build awesomeProject/aac" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/aac/c.go" />
+      <package value="awesomeProject/aac" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build awesomeProject/lj" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/lj/maria.go" />
+      <package value="awesomeProject/lj" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build awesomeProject/sql" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/sql/maria.go" />
+      <package value="awesomeProject/sql" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build emp.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/oop/emp.go" />
+      <package value="awesomeProject" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="awesomeProject" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build awesomeProject/lj" />
+        <item itemvalue="Go Build.go build awesomeProject/sql" />
+        <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Build.go build emp.go" />
+        <item itemvalue="Go Build.go build awesomeProject/aac" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="789" y="203" key="#GOPATH" timestamp="1600139470113">
+      <screen x="67" y="0" width="1853" height="1080" />
+    </state>
+    <state x="789" y="203" key="#GOPATH/67.0.1853.1080@67.0.1853.1080" timestamp="1600139470113" />
+    <state x="720" y="361" key="#Notifications" timestamp="1600929164116">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="720" y="361" key="#Notifications/66.0.1854.1080@66.0.1854.1080" timestamp="1600929164116" />
+    <state width="1808" height="347" key="GridCell.Tab.0.bottom" timestamp="1601455232563">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1810" height="662" key="GridCell.Tab.0.bottom/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812880" />
+    <state width="1808" height="347" key="GridCell.Tab.0.bottom/66.0.1854.1080@66.0.1854.1080" timestamp="1601455232563" />
+    <state width="1807" height="290" key="GridCell.Tab.0.bottom/67.0.1853.1080@67.0.1853.1080" timestamp="1600913301130" />
+    <state width="1808" height="347" key="GridCell.Tab.0.center" timestamp="1601455232563">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1810" height="662" key="GridCell.Tab.0.center/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812880" />
+    <state width="1808" height="347" key="GridCell.Tab.0.center/66.0.1854.1080@66.0.1854.1080" timestamp="1601455232563" />
+    <state width="1807" height="290" key="GridCell.Tab.0.center/67.0.1853.1080@67.0.1853.1080" timestamp="1600913301130" />
+    <state width="1808" height="347" key="GridCell.Tab.0.left" timestamp="1601455232563">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1810" height="662" key="GridCell.Tab.0.left/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812879" />
+    <state width="1808" height="347" key="GridCell.Tab.0.left/66.0.1854.1080@66.0.1854.1080" timestamp="1601455232563" />
+    <state width="1807" height="290" key="GridCell.Tab.0.left/67.0.1853.1080@67.0.1853.1080" timestamp="1600913301129" />
+    <state width="1808" height="347" key="GridCell.Tab.0.right" timestamp="1601455232563">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1810" height="662" key="GridCell.Tab.0.right/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812880" />
+    <state width="1808" height="347" key="GridCell.Tab.0.right/66.0.1854.1080@66.0.1854.1080" timestamp="1601455232563" />
+    <state width="1807" height="290" key="GridCell.Tab.0.right/67.0.1853.1080@67.0.1853.1080" timestamp="1600913301130" />
+    <state width="1808" height="358" key="GridCell.Tab.1.bottom" timestamp="1601167884542">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1808" height="358" key="GridCell.Tab.1.bottom/66.0.1854.1080@66.0.1854.1080" timestamp="1601167884542" />
+    <state width="1807" height="358" key="GridCell.Tab.1.bottom/67.0.1853.1080@67.0.1853.1080" timestamp="1600423167162" />
+    <state width="1808" height="358" key="GridCell.Tab.1.center" timestamp="1601167884542">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1808" height="358" key="GridCell.Tab.1.center/66.0.1854.1080@66.0.1854.1080" timestamp="1601167884542" />
+    <state width="1807" height="358" key="GridCell.Tab.1.center/67.0.1853.1080@67.0.1853.1080" timestamp="1600423167162" />
+    <state width="1808" height="358" key="GridCell.Tab.1.left" timestamp="1601167884542">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1808" height="358" key="GridCell.Tab.1.left/66.0.1854.1080@66.0.1854.1080" timestamp="1601167884542" />
+    <state width="1807" height="358" key="GridCell.Tab.1.left/67.0.1853.1080@67.0.1853.1080" timestamp="1600423167162" />
+    <state width="1808" height="358" key="GridCell.Tab.1.right" timestamp="1601167884542">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="1808" height="358" key="GridCell.Tab.1.right/66.0.1854.1080@66.0.1854.1080" timestamp="1601167884542" />
+    <state width="1807" height="358" key="GridCell.Tab.1.right/67.0.1853.1080@67.0.1853.1080" timestamp="1600423167162" />
+    <state x="497" y="176" key="SettingsEditor" timestamp="1601455477652">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="497" y="176" key="SettingsEditor/66.0.1854.1080@66.0.1854.1080" timestamp="1601455477652" />
+    <state x="498" y="176" key="SettingsEditor/67.0.1853.1080@67.0.1853.1080" timestamp="1600831196583" />
+    <state width="498" height="447" key="SwitcherDM" timestamp="1601281839494">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state width="498" height="447" key="SwitcherDM/66.0.1854.1080@66.0.1854.1080" timestamp="1601281839494" />
+    <state x="771" y="390" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1600247527955">
+      <screen x="67" y="0" width="1853" height="1080" />
+    </state>
+    <state x="771" y="390" key="com.goide.refactor.move.GoMoveDeclarationDialog/67.0.1853.1080@67.0.1853.1080" timestamp="1600247527955" />
+    <state x="162" y="96" width="1662" height="888" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1601025578692">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="162" y="96" width="1662" height="888" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/66.0.1854.1080@66.0.1854.1080" timestamp="1601025578692" />
+    <state x="838" y="298" key="refactoring.ChangeSignatureDialog" timestamp="1601277942242">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="838" y="298" key="refactoring.ChangeSignatureDialog/66.0.1854.1080@66.0.1854.1080" timestamp="1601277942242" />
+    <state x="655" y="237" width="673" height="678" key="search.everywhere.popup" timestamp="1601281846868">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="655" y="237" width="673" height="678" key="search.everywhere.popup/66.0.1854.1080@66.0.1854.1080" timestamp="1601281846868" />
+    <state x="656" y="237" width="672" height="678" key="search.everywhere.popup/67.0.1853.1080@67.0.1853.1080" timestamp="1600660766968" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="i" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
