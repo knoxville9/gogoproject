@@ -1,0 +1,183 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Swagger Example API",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "127.0.0.1",
+    "basePath": "/",
+    "paths": {
+        "/team": {
+            "get": {
+                "description": "根据自己的role，查找团队成员",
+                "summary": "查看团队",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.MemberList"
+                        }
+                    },
+                    "400": {
+                        "description": "We need ID!!",
+                        "schema": {
+                            "$ref": "#/definitions/domain.APIError"
+                        }
+                    },
+                    "404": {
+                        "description": "Can not find ID",
+                        "schema": {
+                            "$ref": "#/definitions/domain.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/tid": {
+            "get": {
+                "description": "根据t_userid一直找到公司",
+                "summary": "查找推荐关系",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.MemberList"
+                        }
+                    },
+                    "400": {
+                        "description": "We need ID!!",
+                        "schema": {
+                            "$ref": "#/definitions/domain.APIError"
+                        }
+                    },
+                    "404": {
+                        "description": "Can not find ID",
+                        "schema": {
+                            "$ref": "#/definitions/domain.APIError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "domain.APIError": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "integer"
+                },
+                "errorMessage": {
+                    "type": "string"
+                }
+            }
+        },
+        "domain.MemberList": {
+            "type": "object",
+            "required": [
+                "member_list_id"
+            ],
+            "properties": {
+                "isactive": {
+                    "description": "Isactive 0，未激活，1激活",
+                    "type": "integer"
+                },
+                "isblack": {
+                    "description": "Isblack 是否黑名单",
+                    "type": "integer"
+                },
+                "member_list_id": {
+                    "description": "MemberListID 主键id",
+                    "type": "integer"
+                },
+                "p_role": {
+                    "description": "PRole 上级角色",
+                    "type": "integer"
+                },
+                "p_username": {
+                    "description": "PUsername 上级姓名",
+                    "type": "string"
+                },
+                "parentid": {
+                    "description": "Parentid 上级ID",
+                    "type": "integer"
+                },
+                "realname": {
+                    "description": "Realname 姓名",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Role 用户角色",
+                    "type": "integer"
+                },
+                "role10": {
+                    "description": "Role10 官方",
+                    "type": "integer"
+                },
+                "role11": {
+                    "description": "Role11 荣誉官方",
+                    "type": "integer"
+                },
+                "role12": {
+                    "description": "Role12 总代",
+                    "type": "integer"
+                },
+                "role13": {
+                    "description": "Role13 省级",
+                    "type": "integer"
+                },
+                "role14": {
+                    "description": "Role14 市级",
+                    "type": "integer"
+                },
+                "role15": {
+                    "description": "Role15 特约",
+                    "type": "integer"
+                },
+                "role16": {
+                    "description": "Role16 无",
+                    "type": "integer"
+                },
+                "t_role": {
+                    "description": "TRole 推荐人角色",
+                    "type": "integer"
+                },
+                "t_userid": {
+                    "description": "TUserid 推荐人ID",
+                    "type": "integer"
+                },
+                "t_username": {
+                    "description": "TUsername 推荐人姓名",
+                    "type": "string"
+                },
+                "user_status": {
+                    "description": "UserStatus 用户状态（0未处理1拒绝2通过）",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

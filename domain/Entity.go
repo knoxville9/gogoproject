@@ -1,5 +1,10 @@
 package domain
 
+type APIError struct {
+	ErrorCode    int
+	ErrorMessage string
+}
+
 // WdMemberList ...
 type MemberList struct {
 	// MemberListID 主键id
