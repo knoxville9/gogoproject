@@ -2,9 +2,10 @@ package main
 
 import (
 	_ "awesomeProject/docs"
+	. "awesomeProject/handler"
 	. "awesomeProject/init"
 	. "awesomeProject/services"
-	"github.com/gin-contrib/gzip"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -23,13 +24,25 @@ func main() {
 
 	SqlInstance()
 
-	r := gin.Default()
-	r.Use(gzip.Gzip(gzip.BestSpeed))
+	r := gin.New()
+	//r.NoMethod(HandleNotFound)
+	//r.NoRoute(HandleNotFound)
+	r.Use(Recover)
 	r.GET("/tid", FindRecommended)
 
 	r.GET("/team", Team)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	r.Run(":80")
+	r.POST("/test", Test)
+
+	//测试时下面两个中间件选择一个，注释一个
+	r.Use(CustomRouterMiddle1)
+
+	r.Run()
+
+}
+
+func CustomRouterMiddle1(c *gin.Context) {
+	fmt.Println("abc")
 
 }

@@ -4,8 +4,21 @@ import (
 	. "awesomeProject/domain"
 	. "awesomeProject/init"
 	"github.com/gin-gonic/gin"
-	"strconv"
+	"net/http"
 )
+
+func Test(c *gin.Context) {
+	var m MemberList
+
+	if err := c.ShouldBind(&m); err != nil {
+		c.JSON(http.StatusBadRequest, err.Error())
+		return
+
+	}
+
+	c.JSON(http.StatusOK, gin.H{"status": "you are logged in"})
+
+}
 
 // @Summary 查找推荐关系
 // @Description   根据t_userid一直找到公司
@@ -15,15 +28,16 @@ import (
 // @Failure 404 {object} domain.APIError "Can not find ID"
 // @Router /tid [get]
 func FindRecommended(c *gin.Context) {
-	ms := []MemberList{}
+	var ms []MemberList
+	var m MemberList
 
-	id := c.Query("id")
+	if err := c.ShouldBind(&m); err != nil {
+		c.JSON(http.StatusBadRequest, err.Error())
+		return
 
-	atoi, err := strconv.Atoi(id)
-	if err != nil {
-		panic(err)
 	}
-	c.JSON(200, DownToUp(atoi, &ms))
+
+	c.JSON(200, DownToUp(m.MemberListID, &ms))
 
 }
 
@@ -37,15 +51,17 @@ func FindRecommended(c *gin.Context) {
 func Team(c *gin.Context) {
 	m := MemberList{}
 
-	ms := []MemberList{}
+	var ms []MemberList
 
-	id := c.Query("id")
+	if err := c.ShouldBind(&m); err != nil {
+		c.JSON(http.StatusBadRequest, err.Error())
+		return
 
-	Db.Where("member_list_id = ?", id).First(&m)
+	}
 
-	role := m.Role
+	Db.Where("member_list_id = ?", m.MemberListID).First(&m)
 
-	switch int(role) {
+	switch m.Role {
 	case 10:
 		Db.Where("role10 = ?", m.MemberListID).Find(&ms)
 	case 11:
@@ -62,7 +78,12 @@ func Team(c *gin.Context) {
 		Db.Where("role16 = ?", m.MemberListID).Find(&ms)
 	}
 
-	c.JSON(200, ms)
+	if ms == nil {
+		c.JSON(http.StatusBadRequest, "没有任何下级")
+		return
+	}
+
+	c.JSON(http.StatusOK, ms)
 
 }
 

@@ -1,14 +1,9 @@
 package domain
 
-type APIError struct {
-	ErrorCode    int
-	ErrorMessage string
-}
-
 // WdMemberList ...
 type MemberList struct {
 	// MemberListID 主键id
-	MemberListID uint32 `json:"member_list_id" binding:"required"`
+	MemberListID int `json:"id" binding:"required" form:"id"`
 	// MemberListUsername 账号
 	MemberListUsername string `json:"-"`
 	// Role 用户角色

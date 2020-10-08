@@ -17,7 +17,7 @@ type Goods struct {
 	Url   string   `json:"url"`
 }
 
-func pa() {
+func main() {
 
 	c := colly.NewCollector(
 		colly.UserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"))
@@ -33,7 +33,7 @@ func pa() {
 		log.Println(err.Error())
 	})
 
-	for i := 1; i < 2; i++ {
+	for i := 1; i < 10; i++ {
 		url := "http://bbs.badmintoncn.com/forum.php?mod=forumdisplay&fid=64&page=" + strconv.Itoa(i)
 		c.OnHTML(".xst", func(e *colly.HTMLElement) {
 			attr := e.Attr("href")
