@@ -7,11 +7,12 @@ import (
 
 func main() {
 	d := new(Doublelist)
-	d.AddFromTail(0, 1)
-	d.AddFromTail(0, 2)
-	d.AddFromTail(2, 3)
-
+	d.AddFromHead(0, 1)
+	d.AddFromHead(0, 2)
+	d.AddFromHead(0, 3)
+	d.DeleteNodefromTail(2)
 	fmt.Println(d)
+
 }
 
 type Doublelist struct {
@@ -129,5 +130,108 @@ func (d *Doublelist) AddFromTail(n int, value int) {
 
 	}
 	d.Size += 1
+
+}
+
+func (d *Doublelist) GetNodeFromHead(n int) *Listnode {
+	if n > d.Size {
+		panic("over the index ")
+	}
+	node := d.Head
+
+	for i := 1; i < n; i++ {
+		node = node.Next
+
+	}
+
+	return node
+
+}
+
+func (d *Doublelist) GetNodeFromTail(n int) *Listnode {
+	if n > d.Size {
+		panic("over the index ")
+
+	}
+
+	node := d.Tail
+
+	for i := 1; i < n; i++ {
+		node = node.Prev
+
+	}
+
+	return node
+
+}
+
+func (d *Doublelist) DeleteNodefromHead(n int) *Listnode {
+	d.Lock.Lock()
+	defer d.Lock.Unlock()
+	if n > d.Size {
+		panic("over the index")
+	}
+	node := d.Head
+
+	for i := 1; i < n; i++ {
+		node = node.Next
+	}
+
+	prev := node.Prev
+	next := node.Next
+
+	if prev.isNil() && next.isNil() {
+		d.Head = nil
+		d.Tail = nil
+
+	} else if prev.isNil() {
+		d.Head = next
+		next.Prev = nil
+
+	} else if next.isNil() {
+		d.Tail = prev
+		prev.Next = nil
+
+	} else {
+		prev.Next = node.Next
+		next.Prev = node.Prev
+	}
+	d.Size -= 1
+	return node
+
+}
+func (d *Doublelist) DeleteNodefromTail(n int) *Listnode {
+	d.Lock.Lock()
+	defer d.Lock.Unlock()
+	if n > d.Size {
+		panic("over the index")
+	}
+	node := d.Tail
+
+	for i := 1; i < n; i++ {
+		node = node.Prev
+	}
+
+	prev := node.Prev
+	next := node.Next
+
+	if prev.isNil() && next.isNil() {
+		d.Head = nil
+		d.Tail = nil
+
+	} else if prev.isNil() {
+		d.Head = next
+		next.Prev = nil
+
+	} else if next.isNil() {
+		d.Tail = prev
+		prev.Next = nil
+
+	} else {
+		prev.Next = node.Next
+		next.Prev = node.Prev
+	}
+	d.Size -= 1
+	return node
 
 }
