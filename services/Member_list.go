@@ -3,21 +3,29 @@ package services
 import (
 	. "awesomeProject/domain"
 	. "awesomeProject/init"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"path/filepath"
+	"strconv"
+	"time"
 )
 
 func Test(c *gin.Context) {
-	var m MemberList
 
-	if err := c.ShouldBind(&m); err != nil {
-		c.JSON(http.StatusBadRequest, err.Error())
-		return
+	form, _ := c.MultipartForm()
+	files := form.File["files"]
 
+	for _, file := range files {
+
+		dst := filepath.Join("./upload", strconv.Itoa(int(time.Now().Unix()))+file.Filename)
+
+		if err := c.SaveUploadedFile(file, dst); err != nil {
+			c.String(http.StatusBadRequest, fmt.Sprintf("upload file err: %s", err.Error()))
+			return
+		}
 	}
-
-	c.JSON(http.StatusOK, gin.H{"status": "you are logged in"})
-
+	c.String(http.StatusOK, fmt.Sprintf("%d files uploaded!", len(files)))
 }
 
 // @Summary 查找推荐关系
@@ -28,6 +36,7 @@ func Test(c *gin.Context) {
 // @Failure 404 {object} domain.APIError "Can not find ID"
 // @Router /tid [get]
 func FindRecommended(c *gin.Context) {
+
 	var ms []MemberList
 	var m MemberList
 

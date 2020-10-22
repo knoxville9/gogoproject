@@ -1,0 +1,11 @@
+[GIN-debug] GET    /tid                      --> awesomeProject/services.FindRecommended (4 handlers)
+[GIN-debug] GET    /team                     --> awesomeProject/services.Team (4 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] POST   /test                     --> awesomeProject/services.Test (4 handlers)
+[GIN-debug] GET    /upload/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /upload/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /login                    --> main.main.func1 (4 handlers)
+[GIN-debug] POST   /login/do                 --> main.main.func2 (4 handlers)
+[GIN-debug] GET    /welcome                  --> main.main.func3 (4 handlers)
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
