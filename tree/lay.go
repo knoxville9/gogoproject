@@ -6,69 +6,85 @@ import (
 )
 
 func main() {
-	tree := Treenode{value: "A"}
-	tree.left = &Treenode{value: "b"}
+	t := &TreeNode{Data: "A"}
+	t.Left = &TreeNode{Data: "B"}
+	t.Left.Left = &TreeNode{Data: "C"}
 
-	layer(&tree)
+	t.Right = &TreeNode{Data: "F"}
+	t.Right.Right = &TreeNode{Data: "z"}
 
+	layer(t)
 }
 
-func layer(tree *Treenode) {
-	if tree == nil {
-		panic("nil")
+func layer(node *TreeNode) {
+	if node == nil {
+		return
 	}
 	q := new(Queue)
-	q.add(tree)
-	for q.len > 0 {
-		fmt.Println(tree)
-		q.remove()
+	q.add(node)
+	for q.Len > 0 {
+		remove := q.remove()
+		fmt.Println(remove)
 
-		if tree.left != nil {
-			q.add(tree.left)
-		} else if tree.rifgt != nil {
-			q.add(tree.rifgt)
+		if remove.Left != nil {
+			q.add(remove.Left)
 
 		}
+		if remove.Right != nil {
+			q.add(remove.Right)
 
+		}
 	}
 
 }
-func (q *Queue) add(node *Treenode) {
-	newnode := new(Linknode)
+
+func (q *Queue) add(node *TreeNode) {
+	q.lock.Lock()
+	defer q.lock.Unlock()
+	l := new(Linknode)
+	l.Value = node
 
 	if q.root == nil {
-		q.root = newnode
-		q.root.value = node
-
+		q.root = l
 	} else {
-
-		root := q.root
-		if root.next != nil {
-			root = root.next
+		now := q.root
+		for now.Next != nil {
+			now = now.Next
 		}
-		root.next = newnode
-		newnode.value = node
+		now.Next = l
+
 	}
 
-	q.len += 1
-}
-func (q *Queue) remove() {
-
-	q.len -= 1
+	q.Len += 1
 }
 
-type Treenode struct {
-	left, rifgt *Treenode
-	value       interface{}
+func (q *Queue) remove() *TreeNode {
+	q.lock.Lock()
+	defer q.lock.Unlock()
+	if q.Len == 0 {
+		panic("no element")
+	}
+	root := q.root
+
+	q.root = root.Next
+
+	q.Len -= 1
+	return root.Value
+
+}
+
+type TreeNode struct {
+	Left, Right *TreeNode
+	Data        string
 }
 
 type Queue struct {
 	root *Linknode
-	len  int
+	Len  int
 	lock sync.Mutex
 }
 
 type Linknode struct {
-	next  *Linknode
-	value *Treenode
+	Next  *Linknode
+	Value *TreeNode
 }
