@@ -245,3 +245,16 @@ type MemberList struct {
 	// CanExchange 是否允许换货 1是0否
 	CanExchange uint8 `json:"-"`
 }
+
+// SqMemberLoginSign ...
+type MemberLoginSign struct {
+	ID uint32 `json:"id"`
+	// Mid 会员ID
+	Mid int `json:"mid"`
+	// Logintime 登录时间
+	Logintime uint32 `json:"logintime"`
+	// Ticket 密钥
+	Ticket string `json:"ticket"`
+	// Limittime 有效时间
+	Limittime uint32 `json:"limittime"`
+}
