@@ -116,44 +116,51 @@ func DownToUp(id int, members *[]MemberList) []MemberList {
 // @Router /link [post]
 func Link(c *gin.Context) {
 
-	st := c.Request.FormValue("id")
+	st := c.PostForm("id")
 	m := &[]MemberList{}
 
 	split := strings.Split(st, ",")
 
 	fmt.Println(len(split))
+	var count int64
 
 	switch len(split) {
 
 	case 2:
 		Db.Where("role = "+split[0]+" and t_userid in (?)",
-			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" ")).Find(&m)
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" ")).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 
 	case 3:
 
 		Db.Where("role = "+split[0]+" and t_userid in (?)",
 			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
-				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+""))).Find(&m)
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+""))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 
 	case 4:
 		Db.Where("role = "+split[0]+" and t_userid in (?)",
 			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
 				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
-					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+"")))).Find(&m)
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+"")))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 
 	case 5:
@@ -161,11 +168,13 @@ func Link(c *gin.Context) {
 			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
 				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
 					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
-						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+""))))).Find(&m)
+						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+""))))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 
 	case 6:
@@ -175,12 +184,13 @@ func Link(c *gin.Context) {
 				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
 					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
 						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
-
-							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+"")))))).Find(&m)
+							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+"")))))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 
 	case 7:
@@ -190,11 +200,13 @@ func Link(c *gin.Context) {
 					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
 						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
 							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+" and t_userid in (?)",
-								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+""))))))).Find(&m)
+								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+""))))))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 
 	case 8:
@@ -205,11 +217,13 @@ func Link(c *gin.Context) {
 						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
 							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+" and t_userid in (?)",
 								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+" and t_userid in (?)",
-									Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[7]+"")))))))).Find(&m)
+									Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[7]+"")))))))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 	case 9:
 
@@ -221,11 +235,13 @@ func Link(c *gin.Context) {
 							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+" and t_userid in (?)",
 								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+" and t_userid in (?)",
 									Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[7]+" and t_userid in (?)",
-										Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[8]+""))))))))).Find(&m)
+										Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[8]+""))))))))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
 
 	case 10:
@@ -238,15 +254,16 @@ func Link(c *gin.Context) {
 								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+" and t_userid in (?)",
 									Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[7]+" and t_userid in (?)",
 										Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[8]+" and t_userid in (?)",
-											Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[9]+"")))))))))).Find(&m)
+											Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[9]+"")))))))))).Find(&m).Count(&count)
 
 		if m != nil {
-			c.JSON(http.StatusOK, m)
-
+			c.JSON(http.StatusOK, gin.H{
+				"Count": count,
+				"Data":  m,
+			})
 		}
-
 	case 1:
-		c.JSON(http.StatusBadRequest, "一层关系，自己去查数据库...")
+		c.JSON(http.StatusBadRequest, "自己去查数据库...")
 
 	default:
 		c.JSON(http.StatusBadRequest, "所求关系链太长....")
