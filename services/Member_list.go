@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -30,11 +31,9 @@ func Test(c *gin.Context) {
 
 // @Summary 查找推荐关系
 // @Description   根据t_userid一直找到公司
-// @Param id query int true "ID"
+// @Param id query int true "id"
 // @Success 200 {object} domain.MemberList
-// @Failure 400 {object} domain.APIError "We need ID!!"
-// @Failure 404 {object} domain.APIError "Can not find ID"
-// @Router /tid [get]
+// @Router /query [get]
 func FindRecommended(c *gin.Context) {
 
 	var ms []MemberList
@@ -52,10 +51,8 @@ func FindRecommended(c *gin.Context) {
 
 // @Summary 查看团队
 // @Description   根据自己的role，查找团队成员
-// @Param id query int true "ID"
+// @Param id query int true "id"
 // @Success 200 {object} domain.MemberList
-// @Failure 400 {object} domain.APIError "We need ID!!"
-// @Failure 404 {object} domain.APIError "Can not find ID"
 // @Router /team [get]
 func Team(c *gin.Context) {
 	m := MemberList{}
@@ -107,5 +104,153 @@ func DownToUp(id int, members *[]MemberList) []MemberList {
 	}
 
 	return *members
+
+}
+
+// @Summary 查找关系链
+// @Description   根据提交的字符串，来查找关系链，比如: 15,14,13 查出来的关系就是特约，省级，市级，但是市级的下一级没有指定的话，就是找出所有可能
+// @Description  最短可查 2 层关系，最长可查 10 层关系
+// @Description  参数 例 : 12,12     以第一个开始
+// @Param id formData  string true "id"
+// @Success 200 {object} domain.MemberList
+// @Router /link [post]
+func Link(c *gin.Context) {
+
+	st := c.Request.FormValue("id")
+	m := &[]MemberList{}
+
+	split := strings.Split(st, ",")
+
+	fmt.Println(len(split))
+
+	switch len(split) {
+
+	case 2:
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" ")).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 3:
+
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+""))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 4:
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+"")))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 5:
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
+						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+""))))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 6:
+
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
+						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
+
+							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+"")))))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 7:
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
+						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
+							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+" and t_userid in (?)",
+								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+""))))))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 8:
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
+						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
+							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+" and t_userid in (?)",
+								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+" and t_userid in (?)",
+									Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[7]+"")))))))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+	case 9:
+
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
+						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
+							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+" and t_userid in (?)",
+								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+" and t_userid in (?)",
+									Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[7]+" and t_userid in (?)",
+										Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[8]+""))))))))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 10:
+		Db.Where("role = "+split[0]+" and t_userid in (?)",
+			Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[1]+" and t_userid in (?)",
+				Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[2]+" and t_userid in (?)",
+					Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[3]+" and t_userid in (?)",
+						Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[4]+" and t_userid in (?)",
+							Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[5]+" and t_userid in (?)",
+								Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[6]+" and t_userid in (?)",
+									Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[7]+" and t_userid in (?)",
+										Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[8]+" and t_userid in (?)",
+											Db.Table("wd_member_list").Select("member_list_id").Where("role = "+split[9]+"")))))))))).Find(&m)
+
+		if m != nil {
+			c.JSON(http.StatusOK, m)
+
+		}
+
+	case 1:
+		c.JSON(http.StatusBadRequest, "一层关系，自己去查数据库...")
+
+	default:
+		c.JSON(http.StatusBadRequest, "所求关系链太长....")
+
+	}
 
 }

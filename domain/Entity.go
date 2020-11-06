@@ -1,5 +1,7 @@
 package domain
 
+import "time"
+
 // WdMemberList ...
 type MemberList struct {
 	// MemberListID 主键id
@@ -241,7 +243,7 @@ type MemberList struct {
 	// MergeMoney BBC合并金额
 	MergeMoney float32 `json:"-"`
 	// StoreMoney 代理库存余额
-	StoreMoney float32 `json:"-"`
+	StoreMoney float32 `json:"StoreMoney"`
 	// CanExchange 是否允许换货 1是0否
 	CanExchange uint8 `json:"-"`
 }
@@ -257,4 +259,29 @@ type MemberLoginSign struct {
 	Ticket string `json:"ticket"`
 	// Limittime 有效时间
 	Limittime uint32 `json:"limittime"`
+}
+
+type MemberAddress struct {
+	ID       int `json:"id"`
+	MemberID int `json:"member_id"`
+	// Realname 收货人
+	Realname string `json:"realname"`
+	// Mobile 手机号
+	Mobile string `json:"mobile"`
+	// Province 省
+	Province string `json:"province"`
+	// City 市
+	City string `json:"city"`
+	// Area 区
+	Area string `json:"area"`
+	// Address 详细地址
+	Address string `json:"address"`
+	// IsDefault 默认地址 1 默认 0 普通
+	IsDefault int `json:"is_default"`
+	// AddCode 邮政编码
+	AddCode int `json:"add_code"`
+	// Addtime 创建时间
+	Addtime time.Time `json:"addtime"`
+	// Lastupdatetime 最后更新时间
+	Lastupdatetime time.Time `json:"lastupdatetime"`
 }

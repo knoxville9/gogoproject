@@ -19,15 +19,57 @@ var doc = `{
         "description": "{{.Description}}",
         "title": "{{.Title}}",
         "contact": {},
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/link": {
+            "post": {
+                "description": "根据提交的字符串，来查找关系链，比如: 15,14,13 查出来的关系就是特约，省级，市级，但是市级的下一级没有指定的话，就是找出所有可能\n最短可查 2 层关系，最长可查 10 层关系\n参数 例 : 12,12     以第一个开始",
+                "summary": "查找关系链",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.MemberList"
+                        }
+                    }
+                }
+            }
+        },
+        "/query": {
+            "get": {
+                "description": "根据t_userid一直找到公司",
+                "summary": "查找推荐关系",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.MemberList"
+                        }
+                    }
+                }
+            }
+        },
         "/team": {
             "get": {
                 "description": "根据自己的role，查找团队成员",
@@ -35,7 +77,7 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "ID",
+                        "description": "id",
                         "name": "id",
                         "in": "query",
                         "required": true
@@ -46,53 +88,6 @@ var doc = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/domain.MemberList"
-                        }
-                    },
-                    "400": {
-                        "description": "We need ID!!",
-                        "schema": {
-                            "$ref": "#/definitions/domain.APIError"
-                        }
-                    },
-                    "404": {
-                        "description": "Can not find ID",
-                        "schema": {
-                            "$ref": "#/definitions/domain.APIError"
-                        }
-                    }
-                }
-            }
-        },
-        "/tid": {
-            "get": {
-                "description": "根据t_userid一直找到公司",
-                "summary": "查找推荐关系",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "ID",
-                        "name": "id",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/domain.MemberList"
-                        }
-                    },
-                    "400": {
-                        "description": "We need ID!!",
-                        "schema": {
-                            "$ref": "#/definitions/domain.APIError"
-                        }
-                    },
-                    "404": {
-                        "description": "Can not find ID",
-                        "schema": {
-                            "$ref": "#/definitions/domain.APIError"
                         }
                     }
                 }
@@ -100,33 +95,26 @@ var doc = `{
         }
     },
     "definitions": {
-        "domain.APIError": {
-            "type": "object",
-            "properties": {
-                "errorCode": {
-                    "type": "integer"
-                },
-                "errorMessage": {
-                    "type": "string"
-                }
-            }
-        },
         "domain.MemberList": {
             "type": "object",
             "required": [
-                "member_list_id"
+                "id"
             ],
             "properties": {
+                "StoreMoney": {
+                    "description": "StoreMoney 代理库存余额",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "MemberListID 主键id",
+                    "type": "integer"
+                },
                 "isactive": {
                     "description": "Isactive 0，未激活，1激活",
                     "type": "integer"
                 },
                 "isblack": {
                     "description": "Isblack 是否黑名单",
-                    "type": "integer"
-                },
-                "member_list_id": {
-                    "description": "MemberListID 主键id",
                     "type": "integer"
                 },
                 "p_role": {
@@ -209,11 +197,11 @@ type swaggerInfo struct {
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
-	Version:     "1.0",
-	Host:        "127.0.0.1",
-	BasePath:    "/",
+	Version:     "",
+	Host:        "",
+	BasePath:    "",
 	Schemes:     []string{},
-	Title:       "Swagger Example API",
+	Title:       "",
 	Description: "",
 }
 

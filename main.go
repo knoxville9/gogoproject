@@ -1,14 +1,25 @@
 package main
 
-import "fmt"
+import (
+	_ "awesomeProject/docs"
+	. "awesomeProject/init"
+	. "awesomeProject/services"
+	"github.com/gin-gonic/gin"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
+)
 
 func main() {
+	SqlInstance()
 
-	strings := []string{}
+	engine := gin.Default()
 
-	strings = append(strings, "1")
-	strings = append(strings, "2")
+	engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	fmt.Println(strings)
+	engine.Any("/query", FindRecommended)
+	engine.Any("/team", Team)
+	engine.POST("/link", Link)
+
+	engine.Run()
 
 }

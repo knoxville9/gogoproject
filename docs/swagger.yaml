@@ -1,22 +1,17 @@
-basePath: /
 definitions:
-  domain.APIError:
-    properties:
-      errorCode:
-        type: integer
-      errorMessage:
-        type: string
-    type: object
   domain.MemberList:
     properties:
+      StoreMoney:
+        description: StoreMoney 代理库存余额
+        type: number
+      id:
+        description: MemberListID 主键id
+        type: integer
       isactive:
         description: Isactive 0，未激活，1激活
         type: integer
       isblack:
         description: Isblack 是否黑名单
-        type: integer
-      member_list_id:
-        description: MemberListID 主键id
         type: integer
       p_role:
         description: PRole 上级角色
@@ -67,22 +62,49 @@ definitions:
         description: UserStatus 用户状态（0未处理1拒绝2通过）
         type: integer
     required:
-    - member_list_id
+    - id
     type: object
-host: 127.0.0.1
 info:
   contact: {}
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  title: Swagger Example API
-  version: "1.0"
 paths:
+  /link:
+    post:
+      description: |-
+        根据提交的字符串，来查找关系链，比如: 15,14,13 查出来的关系就是特约，省级，市级，但是市级的下一级没有指定的话，就是找出所有可能
+        最短可查 2 层关系，最长可查 10 层关系
+        参数 例 : 12,12     以第一个开始
+      parameters:
+      - description: id
+        in: formData
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.MemberList'
+      summary: 查找关系链
+  /query:
+    get:
+      description: 根据t_userid一直找到公司
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.MemberList'
+      summary: 查找推荐关系
   /team:
     get:
       description: 根据自己的role，查找团队成员
       parameters:
-      - description: ID
+      - description: id
         in: query
         name: id
         required: true
@@ -92,36 +114,5 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/domain.MemberList'
-        "400":
-          description: We need ID!!
-          schema:
-            $ref: '#/definitions/domain.APIError'
-        "404":
-          description: Can not find ID
-          schema:
-            $ref: '#/definitions/domain.APIError'
       summary: 查看团队
-  /tid:
-    get:
-      description: 根据t_userid一直找到公司
-      parameters:
-      - description: ID
-        in: query
-        name: id
-        required: true
-        type: integer
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/domain.MemberList'
-        "400":
-          description: We need ID!!
-          schema:
-            $ref: '#/definitions/domain.APIError'
-        "404":
-          description: Can not find ID
-          schema:
-            $ref: '#/definitions/domain.APIError'
-      summary: 查找推荐关系
 swagger: "2.0"
