@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dc27759-2d08-4871-83bc-d3f7bec0efcf" name="Default Changelist" comment="更新关系链查找">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/Member_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/Member_list.go" afterDir="false" />
-    </list>
+    <list default="true" id="8dc27759-2d08-4871-83bc-d3f7bec0efcf" name="Default Changelist" comment="更新关系链查找" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +62,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/upload" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="typescript.add.unambiguous.imports.on.the.fly" value="true" />
   </component>
   <component name="RecentsManager">
@@ -211,7 +208,7 @@
     <state x="777" y="284" key="FileChooserDialogImpl/66.0.1854.1080@66.0.1854.1080" timestamp="1601455492254" />
     <state x="781" y="284" key="FileChooserDialogImpl/72.0.1848.1080@72.0.1848.1080" timestamp="1602643262693" />
     <state x="784" y="284" key="FileChooserDialogImpl/77.0.1843.1080@77.0.1843.1080" timestamp="1603182715454" />
-    <state width="1796" height="503" key="GridCell.Tab.0.bottom" timestamp="1604644760333">
+    <state width="1796" height="503" key="GridCell.Tab.0.bottom" timestamp="1604645050009">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state width="1810" height="662" key="GridCell.Tab.0.bottom/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812880" />
@@ -221,8 +218,8 @@
     <state width="1802" height="200" key="GridCell.Tab.0.bottom/72.0.1848.1080@72.0.1848.1080" timestamp="1602723293363" />
     <state width="1798" height="503" key="GridCell.Tab.0.bottom/76.0.1844.1080@76.0.1844.1080" timestamp="1603079955293" />
     <state width="1797" height="503" key="GridCell.Tab.0.bottom/77.0.1843.1080@77.0.1843.1080" timestamp="1603425533159" />
-    <state width="1796" height="503" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1604644760333" />
-    <state width="1796" height="503" key="GridCell.Tab.0.center" timestamp="1604644760333">
+    <state width="1796" height="503" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1604645050009" />
+    <state width="1796" height="503" key="GridCell.Tab.0.center" timestamp="1604645050009">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state width="1810" height="662" key="GridCell.Tab.0.center/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812880" />
@@ -232,8 +229,8 @@
     <state width="1802" height="200" key="GridCell.Tab.0.center/72.0.1848.1080@72.0.1848.1080" timestamp="1602723293363" />
     <state width="1798" height="503" key="GridCell.Tab.0.center/76.0.1844.1080@76.0.1844.1080" timestamp="1603079955293" />
     <state width="1797" height="503" key="GridCell.Tab.0.center/77.0.1843.1080@77.0.1843.1080" timestamp="1603425533159" />
-    <state width="1796" height="503" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1604644760333" />
-    <state width="1796" height="503" key="GridCell.Tab.0.left" timestamp="1604644760332">
+    <state width="1796" height="503" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1604645050009" />
+    <state width="1796" height="503" key="GridCell.Tab.0.left" timestamp="1604645050009">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state width="1810" height="662" key="GridCell.Tab.0.left/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812879" />
@@ -243,8 +240,8 @@
     <state width="1802" height="200" key="GridCell.Tab.0.left/72.0.1848.1080@72.0.1848.1080" timestamp="1602723293363" />
     <state width="1798" height="503" key="GridCell.Tab.0.left/76.0.1844.1080@76.0.1844.1080" timestamp="1603079955293" />
     <state width="1797" height="503" key="GridCell.Tab.0.left/77.0.1843.1080@77.0.1843.1080" timestamp="1603425533159" />
-    <state width="1796" height="503" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1604644760332" />
-    <state width="1796" height="503" key="GridCell.Tab.0.right" timestamp="1604644760333">
+    <state width="1796" height="503" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1604645050009" />
+    <state width="1796" height="503" key="GridCell.Tab.0.right" timestamp="1604645050009">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state width="1810" height="662" key="GridCell.Tab.0.right/64.0.1856.1080@64.0.1856.1080" timestamp="1600913812880" />
@@ -254,7 +251,7 @@
     <state width="1802" height="200" key="GridCell.Tab.0.right/72.0.1848.1080@72.0.1848.1080" timestamp="1602723293363" />
     <state width="1798" height="503" key="GridCell.Tab.0.right/76.0.1844.1080@76.0.1844.1080" timestamp="1603079955293" />
     <state width="1797" height="503" key="GridCell.Tab.0.right/77.0.1843.1080@77.0.1843.1080" timestamp="1603425533159" />
-    <state width="1796" height="503" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1604644760333" />
+    <state width="1796" height="503" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1604645050009" />
     <state width="778" height="937" key="GridCell.Tab.1.bottom" timestamp="1604631093494">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
@@ -300,8 +297,8 @@
     </state>
     <state x="770" y="244" key="RollbackChangesDialog/66.0.1854.1080@66.0.1854.1080" timestamp="1602232925224" />
     <state x="777" y="244" key="RollbackChangesDialog/77.0.1843.1080@77.0.1843.1080" timestamp="1603090700092" />
-    <state x="506" y="176" key="SettingsEditor" timestamp="1603182817651">
-      <screen x="77" y="0" width="1843" height="1080" />
+    <state x="507" y="176" key="SettingsEditor" timestamp="1604645000956">
+      <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="494" y="176" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1601874378028" />
     <state x="497" y="176" key="SettingsEditor/66.0.1854.1080@66.0.1854.1080" timestamp="1602224629752" />
@@ -309,18 +306,19 @@
     <state x="499" y="176" key="SettingsEditor/68.0.1852.1080@68.0.1852.1080" timestamp="1601965727002" />
     <state x="502" y="176" key="SettingsEditor/72.0.1848.1080@72.0.1848.1080" timestamp="1602643264138" />
     <state x="506" y="176" key="SettingsEditor/77.0.1843.1080@77.0.1843.1080" timestamp="1603182817651" />
+    <state x="507" y="176" key="SettingsEditor/78.0.1842.1080@78.0.1842.1080" timestamp="1604645000956" />
     <state width="498" height="447" key="SwitcherDM" timestamp="1603265694404">
       <screen x="77" y="0" width="1843" height="1080" />
     </state>
     <state width="498" height="447" key="SwitcherDM/66.0.1854.1080@66.0.1854.1080" timestamp="1601281839494" />
     <state width="498" height="447" key="SwitcherDM/77.0.1843.1080@77.0.1843.1080" timestamp="1603265694404" />
-    <state x="597" y="263" key="Vcs.Push.Dialog.v2" timestamp="1604632235976">
+    <state x="597" y="263" key="Vcs.Push.Dialog.v2" timestamp="1604645027456">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="589" y="263" key="Vcs.Push.Dialog.v2/66.0.1854.1080@66.0.1854.1080" timestamp="1601455685611" />
     <state x="590" y="263" key="Vcs.Push.Dialog.v2/68.0.1852.1080@68.0.1852.1080" timestamp="1602131232196" />
     <state x="596" y="263" key="Vcs.Push.Dialog.v2/77.0.1843.1080@77.0.1843.1080" timestamp="1603358870268" />
-    <state x="597" y="263" key="Vcs.Push.Dialog.v2/78.0.1842.1080@78.0.1842.1080" timestamp="1604632235976" />
+    <state x="597" y="263" key="Vcs.Push.Dialog.v2/78.0.1842.1080@78.0.1842.1080" timestamp="1604645027456" />
     <state x="771" y="390" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1600247527955">
       <screen x="67" y="0" width="1853" height="1080" />
     </state>
@@ -337,14 +335,14 @@
       <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="709" y="132" width="569" height="816" key="find.popup/68.0.1852.1080@68.0.1852.1080" timestamp="1601975073705" />
-    <state width="602" height="92" key="javadoc.popup.new" timestamp="1604644716876">
+    <state width="602" height="92" key="javadoc.popup.new" timestamp="1604644905608">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state width="556" height="246" key="javadoc.popup.new/66.0.1854.1080@66.0.1854.1080" timestamp="1602235351589" />
     <state width="605" height="136" key="javadoc.popup.new/72.0.1848.1080@72.0.1848.1080" timestamp="1602647352677" />
     <state width="604" height="114" key="javadoc.popup.new/76.0.1844.1080@76.0.1844.1080" timestamp="1603079919593" />
     <state width="603" height="92" key="javadoc.popup.new/77.0.1843.1080@77.0.1843.1080" timestamp="1603425470582" />
-    <state width="602" height="92" key="javadoc.popup.new/78.0.1842.1080@78.0.1842.1080" timestamp="1604644716876" />
+    <state width="602" height="92" key="javadoc.popup.new/78.0.1842.1080@78.0.1842.1080" timestamp="1604644905608" />
     <state x="839" y="298" key="refactoring.ChangeSignatureDialog" timestamp="1601896191373">
       <screen x="68" y="0" width="1852" height="1080" />
     </state>
