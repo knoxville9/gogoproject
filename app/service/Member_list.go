@@ -1,7 +1,7 @@
 package services
 
 import (
-	. "awesomeProject/domain"
+	"awesomeProject/app/model"
 	. "awesomeProject/init"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -36,8 +36,8 @@ func Test(c *gin.Context) {
 // @Router /query [get]
 func FindRecommended(c *gin.Context) {
 
-	var ms []MemberList
-	var m MemberList
+	var ms []model.MemberList
+	var m model.MemberList
 
 	if err := c.ShouldBind(&m); err != nil {
 		c.JSON(http.StatusBadRequest, err.Error())
@@ -55,9 +55,9 @@ func FindRecommended(c *gin.Context) {
 // @Success 200 {object} domain.MemberList
 // @Router /team [get]
 func Team(c *gin.Context) {
-	m := MemberList{}
+	m := model.MemberList{}
 
-	var ms []MemberList
+	var ms []model.MemberList
 
 	if err := c.ShouldBind(&m); err != nil {
 		c.JSON(http.StatusBadRequest, err.Error())
@@ -93,8 +93,8 @@ func Team(c *gin.Context) {
 
 }
 
-func DownToUp(id int, members *[]MemberList) []MemberList {
-	member := MemberList{}
+func DownToUp(id int, members *[]model.MemberList) []model.MemberList {
+	member := model.MemberList{}
 
 	Db.Where("member_list_id = ?", id).First(&member)
 
@@ -117,7 +117,7 @@ func DownToUp(id int, members *[]MemberList) []MemberList {
 func Link(c *gin.Context) {
 
 	st := c.PostForm("id")
-	m := &[]MemberList{}
+	m := &[]model.MemberList{}
 
 	split := strings.Split(st, ",")
 
