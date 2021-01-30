@@ -9,7 +9,7 @@ import (
 
 var Db *gorm.DB
 var db *sql.DB
-var Dsn = "dev_crm:1q2w3e4R@tcp(rm-wz94wke3403mitc8mo.mysql.rds.aliyuncs.com:3306)/dev_crm?charset=utf8mb4&parseTime=True&loc=Local"
+var Dsn = "root:123123@tcp(localhost:3306)/dev_crm?charset=utf8mb4&parseTime=True&loc=Local"
 
 func SqlInstance() {
 	var err1 error
